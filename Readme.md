@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг»
 
 * Студент: [Артем Волосков](https://up.htmlacademy.ru/javascript/23/user/139563).
-* Наставник: `Александр Григорьев(https://htmlacademy.ru/profile/fuckhtml)`.
+* Наставник: [Александр Григорьев](https://htmlacademy.ru/profile/fuckhtml).
 
 ---
 
