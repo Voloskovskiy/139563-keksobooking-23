@@ -1,8 +1,8 @@
 //Первоисточник
 let generateRandomNumber = function(from, to){
-    return Math.floor(from + Math.random() * (to + 1 - from));
+    return Math.floor(+from + Math.random() * (+to + 1 - (+from)));
 }
-generateRandomNumber(12, 7);
+console.log(generateRandomNumber(-12, 7));
 let generateRandomFloorNumber = function(from, to, afterComma){
     return (from + Math.random() * (to + 1 - from)).toFixed(afterComma);
 }
