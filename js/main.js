@@ -6,7 +6,7 @@ let generateRandomNumber = function(from, to){
     to = from;
     from = tmp;
   }
-  return Math.floor(Math.random() * (to - from + 1) ) + from;
+  return +Math.floor(Math.random() * (to - from + 1) ) + from;
 }
 generateRandomNumber(-12, 7);
 let generateRandomFloorNumber = function(from, to, afterComma){
