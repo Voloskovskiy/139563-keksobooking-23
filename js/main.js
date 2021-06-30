@@ -19,4 +19,4 @@ const generateRandomFloorNumber = function(from, to, afterComma){
   }
   return +((Math.floor(Math.random() * (to - from + 1) ) + from)/(10*afterComma)).toFixed(afterComma);
 };
-generateRandomFloorNumber(18, 11, 3);
+generateRandomFloorNumber(18, -91, 3);
