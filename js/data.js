@@ -71,4 +71,4 @@ const getDemoData = function (count) {
   return new Array(count).fill(null).map(() => createBuilding());
 };
 
-export {getDemoData}
+export {getDemoData};

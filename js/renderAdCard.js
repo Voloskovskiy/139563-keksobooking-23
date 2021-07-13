@@ -1,10 +1,10 @@
-const BOOKING_AD_CONTAINER = document.querySelector('#map-canvas');
-const BOOKING_ELEMENT_TEMPLATE = document.querySelector('#card').content;
-const BOOKING_AD_FRAGMENT = document.createDocumentFragment();
+const bookingAdContainer = document.querySelector('#map-canvas');
+const bookingElementTemplate = document.querySelector('#card').content;
+const bookingAdFragment = document.createDocumentFragment();
 
 const renderBookingAd = function (elements) {
   elements.forEach((element) => {
-    let bookingTemplateClone = BOOKING_ELEMENT_TEMPLATE.cloneNode(true);
+    const bookingTemplateClone = bookingElementTemplate.cloneNode(true);
     bookingTemplateClone.querySelector('.popup__title').textContent = element.offer.title;
     bookingTemplateClone.querySelector('.popup__text--address').textContent = element.offer.address;
     bookingTemplateClone.querySelector('.popup__text--price').textContent = element.offer.price + ' ₽/ночь';
@@ -36,16 +36,16 @@ const renderBookingAd = function (elements) {
     bookingTemplateClone.querySelector('.popup__avatar').src = element.author.avatar;
 
     bookingTemplateClone.querySelector('.popup__features').textContent = '';
-    for (let featureClass of element.offer.features) {
-      let featureItem = document.createElement('li');
+    for (const featureClass of element.offer.features) {
+      const featureItem = document.createElement('li');
       featureItem.classList.add('popup__feature');
       featureItem.classList.add('popup__feature--${}' + featureClass);
       bookingTemplateClone.querySelector('.popup__features').appendChild(featureItem);
     }
 
     bookingTemplateClone.querySelector('.popup__photos').textContent = '';
-    for (let photoSrc of element.offer.photos) {
-      let photoItem = document.createElement('img');
+    for (const photoSrc of element.offer.photos) {
+      const photoItem = document.createElement('img');
       photoItem.src = photoSrc;
       photoItem.alt = 'Фотография жилья';
       photoItem.width = '45';
@@ -53,9 +53,9 @@ const renderBookingAd = function (elements) {
       bookingTemplateClone.querySelector('.popup__photos').appendChild(photoItem);
     }
     
-    BOOKING_AD_FRAGMENT.appendChild(bookingTemplateClone);
+    bookingAdFragment.appendChild(bookingTemplateClone);
   });
-  BOOKING_AD_CONTAINER.appendChild(BOOKING_AD_FRAGMENT);
+  bookingAdContainer.appendChild(bookingAdFragment);
 };
 
-export {renderBookingAd}
+export {renderBookingAd};
