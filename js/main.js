@@ -1,4 +1,8 @@
 import {getDemoData} from './data.js';
+import {renderBookingAd} from './renderAdCard.js';
 
-const generateBookingAd = getDemoData(10);
-console.log(generateBookingAd);
+//генерация демо данных
+const generateBookingAd = getDemoData(1);
+
+//отрисовка обьекта на странице
+renderBookingAd(generateBookingAd);

@@ -54,7 +54,7 @@ const createBuilding = () => {
     offer: {
       title: 'KeksoHotel',
       address: COORDINATES.lat + ', ' + COORDINATES.lng,
-      price: generateRandomNumber(1000000,100000000),
+      price: generateRandomNumber(1000,5000),
       type: getRandomArrayElement(PLASE_TYPES),
       rooms: generateRandomNumber(1,10),
       guests: generateRandomNumber(1,15),
@@ -71,4 +71,4 @@ const getDemoData = function (count) {
   return new Array(count).fill(null).map(() => createBuilding());
 };
 
-export {getDemoData}
+export {getDemoData};

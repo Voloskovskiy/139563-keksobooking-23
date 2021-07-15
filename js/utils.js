@@ -44,4 +44,4 @@ const getUniqueArrayElement  = (elements) => {
   return ELEMENT_VALUE;
 };
 
-export {generateRandomNumber, generateRandomFloorNumber, getRandomArrayElement, getRandomArrayElementList, getUniqueArrayElement}
+export {generateRandomNumber, generateRandomFloorNumber, getRandomArrayElement, getRandomArrayElementList, getUniqueArrayElement};
