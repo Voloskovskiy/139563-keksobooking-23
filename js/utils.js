@@ -1,4 +1,4 @@
-const generateRandomNumber = function(from, to){
+const generateRandomNumber = (from, to) => {
   from = Math.abs(from);
   to = Math.abs(to);
   if (from>=to) {
@@ -8,7 +8,7 @@ const generateRandomNumber = function(from, to){
   }
   return +Math.floor(Math.random() * (to - from + 1) ) + from;
 };
-const generateRandomFloorNumber = function(from, to, afterComma=1){
+const generateRandomFloorNumber = (from, to, afterComma=1) => {
   from = Math.abs(from);
   to = Math.abs(to);
   if (from>=to) {
@@ -31,7 +31,7 @@ const getRandomArrayElement = (elements) => {
 const getRandomArrayElementList = (elements) => {
   return shuffleArray(elements).slice(generateRandomNumber(0, elements.length - 1));
 };
-const getUniqueArrayElement  = (elements) => {
+const getUniqueArrayElement = (elements) => {
   const INDEX_ELEMET = generateRandomNumber(0, elements.length - 1);
   const ELEMENT_VALUE = elements[INDEX_ELEMET];
   elements.splice(INDEX_ELEMET,1);

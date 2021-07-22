@@ -1,37 +1,36 @@
-const disabledForm = function () {
+const disabledForm = () => {
   const bookingForm = document.querySelector('.ad-form');
   const mapFilters = document.querySelector('.map__filters');
 
   bookingForm.classList.add('ad-form--disabled');
   mapFilters.classList.add('ad-form--disabled');
-  
-  const interactivElementsForm = bookingForm.children;
-  for (let interactivElementForm of interactivElementsForm) {
-    interactivElementForm.disabled = true;
-  }
 
-  const interactivElementsFilter = mapFilters.children;
-  for (let interactivElementFilter of interactivElementsFilter) {
-    interactivElementFilter.disabled = true;
+  const interactivElements = [];
+  Object.assign(interactivElements, mapFilters.children, bookingForm.children);
+  for (let interactivElement of interactivElements) {
+    interactivElement.disabled = true;
   }
 };
 
-const activateForm = function () {
+const activateForm = () => {
   const bookingForm = document.querySelector('.ad-form');
   const mapFilters = document.querySelector('.map__filters');
 
   bookingForm.classList.remove('ad-form--disabled');
   mapFilters.classList.remove('ad-form--disabled');
   
-  const interactivElementsForm = bookingForm.children;
-  for (let interactivElementForm of interactivElementsForm) {
-    interactivElementForm.disabled = false;
-  }
-
-  const interactivElementsFilter = mapFilters.children;
-  for (let interactivElementFilter of interactivElementsFilter) {
-    interactivElementFilter.disabled = false;
+  const interactivElements = [];
+  Object.assign(interactivElements, mapFilters.children, bookingForm.children);
+  for (let interactivElement of interactivElements) {
+    interactivElement.disabled = false;
   }
 };
 
-export {disabledForm, activateForm}
+const clearForm = () => {
+  const bookingForm = document.querySelector('.ad-form');
+  const mapFilters = document.querySelector('.map__filters');
+  bookingForm.reset();
+  mapFilters.reset();
+};
+
+export {disabledForm, activateForm, clearForm}

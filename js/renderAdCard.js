@@ -2,12 +2,12 @@ const bookingAdContainer = document.querySelector('#map-canvas');
 const bookingElementTemplate = document.querySelector('#card').content;
 const bookingAdFragment = document.createDocumentFragment();
 
-const renderBookingAd = function (elements) {
+const renderBookingAd = (elements) => {
   elements.forEach((element) => {
     const bookingTemplateClone = bookingElementTemplate.cloneNode(true);
     bookingTemplateClone.querySelector('.popup__title').textContent = element.offer.title;
     bookingTemplateClone.querySelector('.popup__text--address').textContent = element.offer.address;
-    bookingTemplateClone.querySelector('.popup__text--price').textContent = element.offer.price + ' ₽/ночь';
+    bookingTemplateClone.querySelector('.popup__text--price').textContent = `${element.offer.price} ₽/ночь`;
     
     switch(element.offer.type) {
       case 'flat': 
@@ -30,8 +30,8 @@ const renderBookingAd = function (elements) {
         break;
     }
     
-    bookingTemplateClone.querySelector('.popup__text--capacity').textContent =  element.offer.rooms + ' комнаты для ' +  element.offer.guests + ' гостей';
-    bookingTemplateClone.querySelector('.popup__text--time').textContent = 'Заезд после ' + element.offer.checkin + ', выезд до ' +  element.offer.checkout;
+    bookingTemplateClone.querySelector('.popup__text--capacity').textContent =  `${element.offer.rooms} комнаты для ${element.offer.guests} гостей`;
+    bookingTemplateClone.querySelector('.popup__text--time').textContent = `Заезд после ${element.offer.checkin}, выезд до ${element.offer.checkout}`;
     bookingTemplateClone.querySelector('.popup__description').textContent = element.offer.description;
     bookingTemplateClone.querySelector('.popup__avatar').src = element.author.avatar;
 
@@ -39,7 +39,7 @@ const renderBookingAd = function (elements) {
     for (const featureClass of element.offer.features) {
       const featureItem = document.createElement('li');
       featureItem.classList.add('popup__feature');
-      featureItem.classList.add('popup__feature--'+featureClass);
+      featureItem.classList.add(`popup__feature--${featureClass}`);
       bookingTemplateClone.querySelector('.popup__features').appendChild(featureItem);
     }
 

@@ -29,13 +29,13 @@ typeObject.addEventListener('input', function (evt){
   }
   priceOfObjectType.min = minPrice;
   priceOfObjectType.placeholder = minPrice;
-  if (priceOfObjectType.value < minPrice) {
+  if (priceOfObjectType.value < minPrice && priceOfObjectType.value.length > 0) {
     priceOfObjectType.setCustomValidity('Цена от '+ minPrice);
+    priceOfObjectType.reportValidity();
   }
   else{
-    priceOfObjectType.setCustomValidity('');
+    priceOfObjectType.setCustomValidity('Необходимо ввести цену за ночь');
   }
-  priceOfObjectType.reportValidity();
 });
 
 const timeSynchronization = function (evt) {
