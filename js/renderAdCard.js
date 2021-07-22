@@ -39,7 +39,7 @@ const renderBookingAd = function (elements) {
     for (const featureClass of element.offer.features) {
       const featureItem = document.createElement('li');
       featureItem.classList.add('popup__feature');
-      featureItem.classList.add('popup__feature--${}' + featureClass);
+      featureItem.classList.add('popup__feature--'+featureClass);
       bookingTemplateClone.querySelector('.popup__features').appendChild(featureItem);
     }
 
