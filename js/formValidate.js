@@ -72,7 +72,7 @@ const changeAvailabilityCapacity = function (evt) {
     break;
   }
   for (let capacityItem of capacity) {
-    if (AvailabilityItems.indexOf(capacityItem.value) == -1) {
+    if (AvailabilityItems.indexOf(capacityItem.value) === -1) {
       capacityItem.disabled = true;
     }
     else{
