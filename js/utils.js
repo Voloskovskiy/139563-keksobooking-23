@@ -26,12 +26,8 @@ const shuffleArray = (elements) => {
   }
   return elements;
 };
-const getRandomArrayElement = (elements) => {
-  return elements[generateRandomNumber(0, elements.length - 1)];
-};
-const getRandomArrayElementList = (elements) => {
-  return shuffleArray(elements).slice(generateRandomNumber(0, elements.length - 1));
-};
+const getRandomArrayElement = (elements) => elements[generateRandomNumber(0, elements.length - 1)];
+const getRandomArrayElementList = (elements) => shuffleArray(elements).slice(generateRandomNumber(0, elements.length - 1));
 const getUniqueArrayElement = (elements) => {
   const INDEX_ELEMET = generateRandomNumber(0, elements.length - 1);
   const ELEMENT_VALUE = elements[INDEX_ELEMET];
@@ -56,9 +52,7 @@ const showAlert = (message) => {
     alertContainer.remove();
   }, ALERT_SHOW_TIME);
 };
-const isEscEvent = (evt) => {
-  return evt.key === 'Escape' || evt.key === 'Esc';
-};
+const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
 
 // Источник - https://www.freecodecamp.org/news/javascript-debounce-example
 function debounce (callback, timeoutDelay = 500) {
