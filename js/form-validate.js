@@ -49,7 +49,7 @@ const getMinPriceForObjectType = () => {
   }
   checkMinPrice(+minPrice);
 };
-typeObject.addEventListener('input', (evt) => {
+typeObject.addEventListener('input', () => {
   getMinPriceForObjectType();
 });
 
