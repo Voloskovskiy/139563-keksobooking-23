@@ -71,9 +71,7 @@ const setUserFormSubmit = (onSuccess, onFail) => {
 avatar.addEventListener('change', () => {
   const file = avatar.files[0];
   const fileName = file.name.toLowerCase();
-  const matches = FILE_TYPES.some((it) => {
-    return fileName.endsWith(it);
-  });
+  const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
   if (matches) {
     avatar.setCustomValidity('');
     const reader = new FileReader();
@@ -89,15 +87,10 @@ avatar.addEventListener('change', () => {
 });
 photoObject.addEventListener('change', () => {
   const file = photoObject.files;
-  
-  //previewPhotoObjectContainer.innerHTML = '';
   for (const objectImage of file) {
     const fileName = objectImage.name.toLowerCase();
-    
-    const matches = FILE_TYPES.some((it) => {
-      return fileName.endsWith(it);
-    });
-      
+
+    const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
     if (matches) {
       photoObject.setCustomValidity('');
       const reader = new FileReader();
