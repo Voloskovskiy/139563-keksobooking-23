@@ -1,10 +1,9 @@
-import {getDemoData} from './data.js';
-import {renderBookingAd} from './renderAdCard.js';
-import {disabledForm, activateForm} from './formInterface.js';
-import './formValidate.js';
+import {openSuccessModal, openErrorModal} from './render-modal.js';
+import {disabledForm, setUserFormSubmit, clickResetButton} from './form-interface.js';
+import {initMap} from './create-map.js';
+import './form-validate.js';
 
 disabledForm();
-activateForm();
-const generateBookingAd = getDemoData(1);
-
-renderBookingAd(generateBookingAd);
+initMap();
+setUserFormSubmit(openSuccessModal, openErrorModal);
+clickResetButton();

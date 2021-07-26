@@ -5,6 +5,26 @@ const timeOut = document.querySelector('#timeout');
 const roomNumber = document.querySelector('#room_number');
 const capacity = document.querySelector('#capacity');
 
+const checkMinPrice = (minPrice = 0) => {
+  priceOfObjectType.min = minPrice;
+  priceOfObjectType.placeholder = minPrice;
+
+  if (priceOfObjectType.value < minPrice && priceOfObjectType.value.length > 0) {
+    priceOfObjectType.setCustomValidity(`Пожалуйста, введите значение не менее ${minPrice}`);
+  }
+  else{
+    if (priceOfObjectType.value >= minPrice) {
+      priceOfObjectType.setCustomValidity('');
+    }
+    else{
+      priceOfObjectType.setCustomValidity('Необходимо ввести цену за ночь');
+    }
+  }
+  priceOfObjectType.reportValidity();
+};
+priceOfObjectType.addEventListener('input', function (evt) {
+  checkMinPrice(+priceOfObjectType.min);
+});
 typeObject.addEventListener('input', function (evt){
   const currentTypeValue = evt.target.options[evt.target.selectedIndex].value;
   let minPrice = 0;
@@ -25,17 +45,10 @@ typeObject.addEventListener('input', function (evt){
       minPrice = 3000;
       break;
     default:
+      minPrice = 1000;
       break;
   }
-  priceOfObjectType.min = minPrice;
-  priceOfObjectType.placeholder = minPrice;
-  if (priceOfObjectType.value < minPrice) {
-    priceOfObjectType.setCustomValidity('Цена от '+ minPrice);
-  }
-  else{
-    priceOfObjectType.setCustomValidity('');
-  }
-  priceOfObjectType.reportValidity();
+  checkMinPrice(+minPrice);
 });
 
 const timeSynchronization = function (evt) {
@@ -68,7 +81,7 @@ const changeAvailabilityCapacity = function (evt) {
       AvailabilityItems = ['0'];
       break;
     default:
-      
+      AvailabilityItems = ['1', '2', '3', '0'];
     break;
   }
   for (let capacityItem of capacity) {
@@ -79,6 +92,17 @@ const changeAvailabilityCapacity = function (evt) {
       capacityItem.disabled = false;
     }
   };
-
+  if (AvailabilityItems.indexOf(capacity.value) === -1) {
+    capacity.setCustomValidity(`Пожалуйста, выберите доступное значение`);
+  }else{
+    capacity.setCustomValidity(``);
+  }
+  capacity.reportValidity();
 };
 roomNumber.addEventListener('input', changeAvailabilityCapacity);
+
+const changeCapaciy = () => {
+  capacity.setCustomValidity(``);
+  capacity.reportValidity();
+};
+capacity.addEventListener('input', changeCapaciy);
