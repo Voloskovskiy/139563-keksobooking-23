@@ -12,7 +12,7 @@ const closeModalSuccess = () => {
   document.removeEventListener('keydown', onSuccessPopupEscKeydown);
   resetInterface();
 };
-const onErrorPopupEscKeydown = (evt) => {
+const onErrorPopupEscKeydown = function (evt) {
   if (isEscEvent(evt)) {
     evt.preventDefault();
     closeModalError();
