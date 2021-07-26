@@ -82,9 +82,9 @@ const changeAvailabilityCapacity = function (evt) {
       break;
     default:
       AvailabilityItems = ['1', '2', '3', '0'];
-  break;
+      break;
   }
-  for (let capacityItem of capacity) {
+  for (const capacityItem of capacity) {
     if (AvailabilityItems.indexOf(capacityItem.value) === -1) {
       capacityItem.disabled = true;
     }

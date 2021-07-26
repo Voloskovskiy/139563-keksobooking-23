@@ -117,15 +117,14 @@ getData((objects) => {
   });
   activateFilter();
   mapFilterChangeHandler(() => {
-    objects.slice()
-    .filter((ad) => (filterType(ad) && filterRooms(ad) && filterGuests(ad) && filterPrice(ad) && filterFeatures(ad)))
+    objects.slice().filter((ad) => (filterType(ad) && filterRooms(ad) && filterGuests(ad) && filterPrice(ad) && filterFeatures(ad)))
     .slice(0, SIMILAR_AD_COUNT).forEach((point) => {
       addMarker(point);
     });
-  }); 
+  });
 },
 () => {
   showAlert('Не удалось получить данные. Попробуйте позже');
 });
 
-export {initMap, setStartPlacemark, setStartMapPosition, addMarker, mapFilterChangeHandler, filterType, filterPrice, filterRooms, filterGuests, filterFeatures}
+export {initMap, setStartPlacemark, setStartMapPosition, addMarker, mapFilterChangeHandler, filterType, filterPrice, filterRooms, filterGuests, filterFeatures};
