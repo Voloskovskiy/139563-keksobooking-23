@@ -25,7 +25,6 @@ const initMap = () => {
       activateForm();
     })
     .setView(INITIAL_MAP_STATE, 15);
-    
   L.tileLayer(
     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     {
@@ -46,7 +45,6 @@ const initMap = () => {
     },
   );
   mainMarker.addTo(map);
-  
   markerGroup = L.layerGroup().addTo(map);
   mainMarker.on('moveend', (evt) => {
     adress.value = `x: ${evt.target.getLatLng().lat.toFixed(5)}, y: ${evt.target.getLatLng().lng.toFixed(5)}`;
