@@ -41,7 +41,7 @@ const resetInterface = () => {
   setStartPlacemark();
 };
 const clickResetButton = () => {
-  document.querySelector('.ad-form__reset').addEventListener('click', function(evt) {
+  document.querySelector('.ad-form__reset').addEventListener('click', (evt) => {
     evt.preventDefault();
     resetInterface();
   });

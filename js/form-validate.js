@@ -22,10 +22,10 @@ const checkMinPrice = (minPrice = 0) => {
   }
   priceOfObjectType.reportValidity();
 };
-priceOfObjectType.addEventListener('input', function () {
+priceOfObjectType.addEventListener('input', () => {
   checkMinPrice(+priceOfObjectType.min);
 });
-typeObject.addEventListener('input', function (evt){
+typeObject.addEventListener('input', (evt) => {
   const currentTypeValue = evt.target.options[evt.target.selectedIndex].value;
   let minPrice = 0;
   switch(currentTypeValue) {
@@ -82,7 +82,7 @@ const changeAvailabilityCapacity = function (evt) {
       break;
     default:
       AvailabilityItems = ['1', '2', '3', '0'];
-    break;
+  break;
   }
   for (let capacityItem of capacity) {
     if (AvailabilityItems.indexOf(capacityItem.value) === -1) {
