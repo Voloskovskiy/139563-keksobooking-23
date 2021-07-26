@@ -57,10 +57,11 @@ const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
 // Источник - https://www.freecodecamp.org/news/javascript-debounce-example
 function debounce (callback, timeoutDelay = 500) {
   let timeoutId;
-  (...rest) => {
+  const checkTimeIsOwer = (...rest) => {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
   };
+  return checkTimeIsOwer;
 }
 
 export {generateRandomNumber, generateRandomFloorNumber, getRandomArrayElement, getRandomArrayElementList, getUniqueArrayElement, showAlert, isEscEvent, debounce};
