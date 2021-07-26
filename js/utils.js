@@ -49,15 +49,13 @@ const showAlert = (message) => {
   alertContainer.style.fontSize = '30px';
   alertContainer.style.textAlign = 'center';
   alertContainer.style.backgroundColor = 'red';
-  
   alertContainer.textContent = message;
-  
   document.body.append(alertContainer);
 
   setTimeout(() => {
     alertContainer.remove();
   }, ALERT_SHOW_TIME);
-}
+};
 const isEscEvent = (evt) => {
   return evt.key === 'Escape' || evt.key === 'Esc';
 };
@@ -65,7 +63,7 @@ const isEscEvent = (evt) => {
 // Источник - https://www.freecodecamp.org/news/javascript-debounce-example
 function debounce (callback, timeoutDelay = 500) {
   let timeoutId;
-  return (...rest) => {
+  (...rest) => {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
   };

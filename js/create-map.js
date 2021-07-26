@@ -117,10 +117,11 @@ getData((objects) => {
   });
   activateFilter();
   mapFilterChangeHandler(() => {
-    objects.slice().filter((ad) => (filterType(ad) && filterRooms(ad) && filterGuests(ad) && filterPrice(ad) && filterFeatures(ad)))
-    .slice(0, SIMILAR_AD_COUNT).forEach((point) => {
-      addMarker(point);
-    });
+    objects.slice()
+      .filter((ad) => (filterType(ad) && filterRooms(ad) && filterGuests(ad) && filterPrice(ad) && filterFeatures(ad)))
+      .slice(0, SIMILAR_AD_COUNT).forEach((point) => {
+        addMarker(point);
+      });
   });
 },
 () => {
