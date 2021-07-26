@@ -66,19 +66,19 @@ const addMarker = (point = 0) => {
     iconAnchor: [20, 40],
   });
   const marker = L.marker(
-      point.location,
+    point.location,
     {
-      icon
+      icon,
     },
   );
   marker
     .addTo(markerGroup)
     .bindPopup(
-        renderBookingAd(point),
-        {
-          keepInView: true,
-        },
-      );
+      renderBookingAd(point),
+      {
+        keepInView: true,
+      },
+    );
 };
 const clearLayer = () => markerGroup.clearLayers();
 
