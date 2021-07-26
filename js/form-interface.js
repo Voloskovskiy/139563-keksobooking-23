@@ -40,10 +40,10 @@ const clearForm = () => {
   bookingForm.reset();
   mapFilters.reset();
   previewAvatar.src = 'img/muffin-grey.svg';
-  const previewPhotoObjectCollection = previewPhotoObjectContainer.querySelectorAll('.ad-form__photo')
+  const previewPhotoObjectCollection = previewPhotoObjectContainer.querySelectorAll('.ad-form__photo');
   for (const photoObjectItem of previewPhotoObjectCollection) {
     photoObjectItem.remove();
-  } 
+  }
 };
 
 const resetInterface = () => {
@@ -71,11 +71,9 @@ const setUserFormSubmit = (onSuccess, onFail) => {
 avatar.addEventListener('change', () => {
   const file = avatar.files[0];
   const fileName = file.name.toLowerCase();
-    
   const matches = FILE_TYPES.some((it) => {
     return fileName.endsWith(it);
   });
-    
   if (matches) {
     avatar.setCustomValidity('');
     const reader = new FileReader();

@@ -3,12 +3,12 @@ import {resetInterface} from './form-interface.js';
 
 const onCloseModalError = () => {
   document.querySelector('.error').remove();
-  document.removeEventListener('click', OnCloseModalError);
+  document.removeEventListener('click', onCloseModalError);
   document.removeEventListener('keydown', onErrorPopupEscKeydown);
 };
 const onCloseModalSuccess = () => {
   document.querySelector('.success').remove();
-  document.removeEventListener('click', OnCloseModalSuccess);
+  document.removeEventListener('click', onCloseModalSuccess);
   document.removeEventListener('keydown', onSuccessPopupEscKeydown);
   resetInterface();
 };
