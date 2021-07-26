@@ -47,14 +47,14 @@ const initMap = () => {
   mainMarker.addTo(map);
   markerGroup = L.layerGroup().addTo(map);
   mainMarker.on('moveend', (evt) => {
-    adress.value = `x: ${evt.target.getLatLng().lat.toFixed(5)}, y: ${evt.target.getLatLng().lng.toFixed(5)}`;
+    adress.value = `${evt.target.getLatLng().lat.toFixed(5)}, ${evt.target.getLatLng().lng.toFixed(5)}`;
   });
-  adress.value = `x: ${INITIAL_COORD_MASTER_PLACEMARK.lat.toFixed(5)}, y: ${INITIAL_COORD_MASTER_PLACEMARK.lng.toFixed(5)}`;
+  adress.value = `${INITIAL_COORD_MASTER_PLACEMARK.lat.toFixed(5)}, ${INITIAL_COORD_MASTER_PLACEMARK.lng.toFixed(5)}`;
 };
 
 const setStartPlacemark = () => {
   mainMarker.setLatLng(INITIAL_COORD_MASTER_PLACEMARK);
-  adress.value = `x: ${INITIAL_COORD_MASTER_PLACEMARK.lat.toFixed(5)}, y: ${INITIAL_COORD_MASTER_PLACEMARK.lng.toFixed(5)}`;
+  adress.value = `${INITIAL_COORD_MASTER_PLACEMARK.lat.toFixed(5)}, ${INITIAL_COORD_MASTER_PLACEMARK.lng.toFixed(5)}`;
 };
 const setStartMapPosition = () => {
   map.setView(INITIAL_MAP_STATE, 15);

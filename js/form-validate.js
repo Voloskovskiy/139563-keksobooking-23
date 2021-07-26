@@ -25,10 +25,9 @@ const checkMinPrice = (minPrice = 0) => {
 priceOfObjectType.addEventListener('input', () => {
   checkMinPrice(+priceOfObjectType.min);
 });
-typeObject.addEventListener('input', (evt) => {
-  const currentTypeValue = evt.target.options[evt.target.selectedIndex].value;
+const getMinPriceForObjectType = () => {
   let minPrice = 0;
-  switch(currentTypeValue) {
+  switch(typeObject.value) {
     case 'flat':
       minPrice = 1000;
       break;
@@ -49,9 +48,12 @@ typeObject.addEventListener('input', (evt) => {
       break;
   }
   checkMinPrice(+minPrice);
+};
+typeObject.addEventListener('input', (evt) => {
+  getMinPriceForObjectType();
 });
 
-const timeSynchronization = function (evt) {
+const timeSynchronization = (evt) => {
   let pairedItemSelector = 'select[name="timein"]';
 
   if (evt.target.matches('select[name="timein"]')) {
@@ -65,9 +67,9 @@ const timeSynchronization = function (evt) {
 timeIn.addEventListener('input', timeSynchronization);
 timeOut.addEventListener('input', timeSynchronization);
 
-const changeAvailabilityCapacity = function (evt) {
+const changeAvailabilityCapacity = () => {
   let AvailabilityItems = [];
-  switch(evt.target.options[evt.target.selectedIndex].value) {
+  switch(roomNumber.value) {
     case '1':
       AvailabilityItems = ['1'];
       break;
@@ -106,3 +108,10 @@ const changeCapaciy = () => {
   capacity.reportValidity();
 };
 capacity.addEventListener('input', changeCapaciy);
+
+const initialValidate = () => {
+  getMinPriceForObjectType();
+  changeAvailabilityCapacity();
+};
+
+export {initialValidate};
