@@ -1,6 +1,18 @@
 import {isEscEvent} from './utils.js';
 import {resetInterface} from './form-interface.js';
 
+const onErrorPopupEscKeydown = (evt) => {
+  if (isEscEvent(evt)) {
+    evt.preventDefault();
+    closeModalError();
+  }
+};
+const onSuccessPopupEscKeydown = (evt) => {
+  if (isEscEvent(evt)) {
+    evt.preventDefault();
+    closeModalSuccess();
+  }
+};
 const closeModalError = () => {
   document.querySelector('.error').remove();
   document.removeEventListener('click', closeModalError);
@@ -26,18 +38,6 @@ const openErrorModal = () => {
   document.addEventListener('click', closeModalError);
   document.querySelector('.error__button').addEventListener('click', closeModalError);
   document.addEventListener('keydown', onErrorPopupEscKeydown);
-};
-const onErrorPopupEscKeydown = (evt) => {
-  if (isEscEvent(evt)) {
-    evt.preventDefault();
-    closeModalError();
-  }
-};
-const onSuccessPopupEscKeydown = (evt) => {
-  if (isEscEvent(evt)) {
-    evt.preventDefault();
-    closeModalSuccess();
-  }
 };
 
 export {onSuccessPopupEscKeydown, onErrorPopupEscKeydown, openSuccessModal, openErrorModal};
