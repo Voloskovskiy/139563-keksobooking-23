@@ -22,17 +22,17 @@ const checkMinPrice = (minPrice = 0) => {
   }
   priceOfObjectType.reportValidity();
 };
-priceOfObjectType.addEventListener('input', function (evt) {
+priceOfObjectType.addEventListener('input', function () {
   checkMinPrice(+priceOfObjectType.min);
 });
 typeObject.addEventListener('input', function (evt){
   const currentTypeValue = evt.target.options[evt.target.selectedIndex].value;
   let minPrice = 0;
   switch(currentTypeValue) {
-    case 'flat': 
+    case 'flat':
       minPrice = 1000;
       break;
-    case 'bungalow': 
+    case 'bungalow':
       minPrice = 0;
       break;
     case 'house':
@@ -68,10 +68,10 @@ timeOut.addEventListener('input', timeSynchronization);
 const changeAvailabilityCapacity = function (evt) {
   let AvailabilityItems = [];
   switch(evt.target.options[evt.target.selectedIndex].value) {
-    case '1': 
+    case '1':
       AvailabilityItems = ['1'];
       break;
-    case '2': 
+    case '2':
       AvailabilityItems = ['1', '2'];
       break;
     case '3':
@@ -91,18 +91,18 @@ const changeAvailabilityCapacity = function (evt) {
     else{
       capacityItem.disabled = false;
     }
-  };
+  }
   if (AvailabilityItems.indexOf(capacity.value) === -1) {
-    capacity.setCustomValidity(`Пожалуйста, выберите доступное значение`);
+    capacity.setCustomValidity('Пожалуйста, выберите доступное значение');
   }else{
-    capacity.setCustomValidity(``);
+    capacity.setCustomValidity('');
   }
   capacity.reportValidity();
 };
 roomNumber.addEventListener('input', changeAvailabilityCapacity);
 
 const changeCapaciy = () => {
-  capacity.setCustomValidity(``);
+  capacity.setCustomValidity('');
   capacity.reportValidity();
 };
 capacity.addEventListener('input', changeCapaciy);

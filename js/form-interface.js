@@ -9,7 +9,7 @@ const disabledForm = () => {
 
   const interactivElements = [];
   Object.assign(interactivElements, mapFilters.children, bookingForm.children);
-  for (let interactivElement of interactivElements) {
+  for (const interactivElement of interactivElements) {
     interactivElement.disabled = true;
   }
 };
@@ -17,7 +17,7 @@ const disabledForm = () => {
 const activateForm = () => {
   bookingForm.classList.remove('ad-form--disabled');
 
-  for (let interactivElement of bookingForm.children) {
+  for (const interactivElement of bookingForm.children) {
     interactivElement.disabled = false;
   }
 };
@@ -25,7 +25,7 @@ const activateForm = () => {
 const activateFilter = () => {
   mapFilters.classList.remove('ad-form--disabled');
 
-  for (let interactivElement of mapFilters.children) {
+  for (const interactivElement of mapFilters.children) {
     interactivElement.disabled = false;
   }
 };
@@ -58,4 +58,4 @@ const setUserFormSubmit = (onSuccess, onFail) => {
   });
 };
 
-export {disabledForm, activateForm, activateFilter, resetInterface, setUserFormSubmit, clickResetButton}
+export {disabledForm, activateForm, activateFilter, resetInterface, setUserFormSubmit, clickResetButton};

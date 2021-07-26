@@ -5,12 +5,11 @@ const renderBookingAd = (element) => {
   bookingTemplateClone.querySelector('.popup__title').textContent = element.offer.title;
   bookingTemplateClone.querySelector('.popup__text--address').textContent = element.offer.address;
   bookingTemplateClone.querySelector('.popup__text--price').textContent = `${element.offer.price} ₽/ночь`;
-    
   switch(element.offer.type) {
-    case 'flat': 
+    case 'flat':
       bookingTemplateClone.querySelector('.popup__type').textContent = 'Квартира';
       break;
-    case 'bungalow': 
+    case 'bungalow':
       bookingTemplateClone.querySelector('.popup__type').textContent = 'Бунгало';
       break;
     case 'house':
@@ -26,7 +25,6 @@ const renderBookingAd = (element) => {
       bookingTemplateClone.querySelector('.popup__type').remove();
       break;
   }
-    
   bookingTemplateClone.querySelector('.popup__text--capacity').textContent =  `${element.offer.rooms} комнаты для ${element.offer.guests} гостей`;
   bookingTemplateClone.querySelector('.popup__text--time').textContent = `Заезд после ${element.offer.checkin}, выезд до ${element.offer.checkout}`;
   bookingTemplateClone.querySelector('.popup__description').textContent = element.offer.description;
@@ -53,8 +51,6 @@ const renderBookingAd = (element) => {
       bookingTemplateClone.querySelector('.popup__photos').appendChild(photoItem);
     }
   }
-  
-
   return bookingTemplateClone;
 };
 

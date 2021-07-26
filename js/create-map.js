@@ -60,21 +60,20 @@ const setStartMapPosition = () => {
   map.setView(INITIAL_MAP_STATE, 15);
 };
 const addMarker = (point = 0) => {
-    const icon = L.icon({
-      iconUrl: 'img/pin.svg',
-      iconSize: [40, 40],
-      iconAnchor: [20, 40],
-    });
-    const marker = L.marker(
-        point.location,
-      {
-        icon
-      },
-    );
-  
-    marker
-      .addTo(markerGroup)
-      .bindPopup(
+  const icon = L.icon({
+    iconUrl: 'img/pin.svg',
+    iconSize: [40, 40],
+    iconAnchor: [20, 40],
+  });
+  const marker = L.marker(
+      point.location,
+    {
+      icon
+    },
+  );
+  marker
+    .addTo(markerGroup)
+    .bindPopup(
         renderBookingAd(point),
         {
           keepInView: true,
